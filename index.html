@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O/L Mathematics & ICT Classes | Adeesha Dilmira</title>
+  <style>
+    :root {
+      --primary: #0284c7;
+      --accent: #f59e0b;
+      --bg: #070f1e;
+      --card-bg: #0f172a;
+      --text-main: #f8fafc;
+      --text-sub: #94a3b8;
+      --border-color: rgba(255, 255, 255, 0.08);
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      padding: 20px 12px;
+    }
+    .container {
+      width: 100%;
+      max-width: 460px;
+      background: var(--card-bg);
+      border-radius: 24px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+      padding: 24px 18px;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Decorative Shapes */
+    .bg-shape-1 {
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(2, 132, 199, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .bg-shape-2 {
+      position: absolute;
+      bottom: -40px;
+      left: -40px;
+      width: 140px;
+      height: 140px;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .header-card {
+      text-align: center;
+      margin-bottom: 18px;
+      position: relative;
+    }
+    .icon-badge {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 12px;
+      background: linear-gradient(135deg, #0284c7, #38bdf8);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(2, 132, 199, 0.35);
+    }
+    .icon-badge svg {
+      width: 32px;
+      height: 32px;
+      fill: #ffffff;
+    }
+    .title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+    .sub-title {
+      font-size: 13px;
+      color: #38bdf8;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .tutor-info {
+      font-size: 11.5px;
+      color: var(--text-sub);
+      margin-top: 2px;
+    }
+    .badge-row {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .tag {
+      background: rgba(56, 189, 248, 0.12);
+      color: #38bdf8;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .custom-banner {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(2, 132, 199, 0.08));
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-radius: 14px;
+      padding: 12px;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    .custom-banner h5 {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 800;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .custom-banner p {
+      font-size: 11.5px;
+      color: #cbd5e1;
+      line-height: 1.4;
+    }
+    .loc-badge {
+      background: linear-gradient(90deg, #1e3a8a, #0284c7);
+      border-radius: 12px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .loc-badge span {
+      font-size: 20px;
+    }
+    .loc-badge div h6 {
+      font-size: 11.5px;
+      color: #ffd166;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .loc-badge div p {
+      font-size: 11px;
+      color: #e2e8f0;
+    }
+    .delivery-alert {
+      background: linear-gradient(90deg, #ea580c, #f97316);
+      border-radius: 12px;
+      padding: 9px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .delivery-alert span {
+      font-size: 18px;
+    }
+    .delivery-alert div {
+      font-size: 11px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .tabs {
+      display: flex;
+      background: #08111e;
+      border-radius: 12px;
+      padding: 4px;
+      margin-bottom: 14px;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 8px 4px;
+      border: none;
+      background: transparent;
+      color: #94a3b8;
+      font-weight: 700;
+      font-size: 12px;
+      border-radius: 9px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .tab-btn.active {
+      background: #38bdf8;
+      color: #070e1b;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.25s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(3px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .info-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 13px;
+      margin-bottom: 10px;
+    }
+    .info-box h4 {
+      font-size: 13.5px;
+      color: #facc15;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .info-box p, .info-box li {
+      font-size: 12px;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+    .fee-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .fee-card .details h5 {
+      font-size: 13px;
+      color: #f8fafc;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .fee-card .details p {
+      font-size: 11px;
+      color: #94a3b8;
+    }
+    .fee-tag {
+      background: rgba(34, 197, 94, 0.15);
+      color: #4ade80;
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .btn-wa {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #16a34a;
+      color: #fff;
+      text-decoration: none;
+      padding: 13px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 13.5px;
+      margin-bottom: 8px;
+      box-shadow: 0 4px 14px rgba(22, 163, 74, 0.3);
+    }
+    .btn-call {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #cbd5e1;
+      text-decoration: none;
+      padding: 11px;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 12.5px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="bg-shape-1"></div>
+  <div class="bg-shape-2"></div>
+
+  <!-- Header Section with Icons & Badges -->
+  <div class="header-card">
+    <div class="icon-badge">
+      <svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.73L12 15l5-2.74v3.73z"/></svg>
+    </div>
+    <h1 class="title">O/L Maths &amp; ICT Classes</h1>
+    <p class="sub-title">BSc (Hons) in IT (Undergraduate)</p>
+    <p class="tutor-info">A/L Combined Mathematics Background</p>
+    <div class="badge-row">
+      <span class="tag">📚 Grade 10 &amp; 11</span>
+      <span class="tag">🌐 Online &amp; Physical</span>
+      <span class="tag">✨ සිංහල &amp; English</span>
+    </div>
+  </div>
+
+  <div class="custom-banner">
+    <h5>🎯 දරුවාගේ දැනුම මට්ටම අනුව ඉගැන්වීම් රටාව සකස් කෙරේ</h5>
+    <p>අමාරු පාඩම් වලට මුල් තැන දී විශේෂ Revision සහ වසර 10ක Past Papers සාකච්ඡාව.</p>
+  </div>
+
+  <div class="loc-badge">
+    <span>📍</span>
+    <div>
+      <h6>Physical &amp; Home Visits:</h6>
+      <p>ගාල්ල, බද්දේගම, අම්බලන්ගොඩ අවට නිවසට පැමිණ ඉගැන්වීම් සිදු කෙරේ.</p>
+    </div>
+  </div>
+
+  <div class="delivery-alert">
+    <span>📦</span>
+    <div>Online සිසුන් සඳහා සියලුම Printed Tutes නිවසටම Deliver කෙරේ!</div>
+  </div>
+
+  <!-- Tabs Navigation -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(0)">⚙️ ක්‍රමවේදය</button>
+    <button class="tab-btn" onclick="switchTab(1)">🎓 පන්ති වර්ග</button>
+    <button class="tab-btn" onclick="switchTab(2)">💳 ගාස්තු</button>
+  </div>
+
+  <!-- Tab 1: Methodology -->
+  <div class="tab-content active" id="tab-0">
+    <div class="info-box">
+      <h4>📑 වසර 10ක Past Papers &amp; Model Papers</h4>
+      <p>පසුගිය වසර 10 ක විභාග ප්‍රශ්න පත්‍ර සියල්ල සවිස්තරාත්මකව සාකච්ඡා කරමින් කෙටි ක්‍රම සහ Time Management පුහුණු කිරීම.</p>
+    </div>
+    <div class="info-box">
+      <h4>💡 විශේෂ Targeted Revision</h4>
+      <p>දරුවාට අපහසු, මඟහැරුණු විශේෂිත පාඩම් ඒකක පමණක් තෝරාගෙන කෙටි කලකින් ආවරණය කරගත හැක.</p>
+    </div>
+    <div class="info-box">
+      <h4>🧠 විෂය කරුණු මුල සිට සරලව</h4>
+      <p>ගණිතය තර්කානුකූල කෙටි ක්‍රම මගින්ද, ICT විෂය Theory සහ Practical ආශ්‍රයෙන්ද දරුවාට පහසු ආකාරයට උගන්වනු ලැබේ.</p>
+    </div>
+  </div>
+
+  <!-- Tab 2: Class Formats -->
+  <div class="tab-content" id="tab-1">
+    <div class="info-box">
+      <h4>🏡 Physical / Home Visits</h4>
+      <p><strong>ගාල්ල, බද්දේගම, අම්බලන්ගොඩ</strong> අවට සිසුන්ගේ නිවෙස් වලට පැමිණ Individual හෝ Small Group පන්ති.</p>
+    </div>
+    <div class="info-box">
+      <h4>💻 Online Classes (Zoom)</h4>
+      <p>දිවයින පුරා සිසුන් සඳහා Individual සහ Small Group පන්ති. Printed Tute Packs නිවසටම තැපැල් කෙරේ.</p>
+    </div>
+  </div>
+
+  <!-- Tab 3: Fees -->
+  <div class="tab-content" id="tab-2">
+    <div class="fee-card">
+      <div class="details">
+        <h5>📐 ගණිතය පමණක් (Maths Only)</h5>
+        <p>Online Small Group (සතියට දින 1ක්)</p>
+      </div>
+      <div class="fee-tag">රු. 1,500 / මසකට</div>
+    </div>
+
+    <div class="fee-card">
+      <div class="details">
+        <h5>💻 ICT පමණක් (ICT Only)</h5>
+        <p>Online Small Group (සතියට දින 1ක්)</p>
+      </div>
+      <div class="fee-tag">රු. 1,500 / මසකට</div>
+    </div>
+
+    <div class="fee-card">
+      <div class="details">
+        <h5>⚡ විෂයන් 2ම (Maths + ICT Combo)</h5>
+        <p>Online Small Group (විෂයන් දෙකටම)</p>
+      </div>
+      <div class="fee-tag">රු. 2,500 / මසකට</div>
+    </div>
+
+    <div class="info-box" style="margin-top: 10px;">
+      <h4>👤 Individual / Home Visits ගාස්තු</h4>
+      <p>දරුවා සිටින ස්ථානය, දුර සහ සතියට අවශ්‍ය පැය ගණන අනුව කතාබස් කර සාධාරණ මුදලක් තීරණය කරගත හැක.</p>
+    </div>
+  </div>
+
+  <!-- Active Action Buttons -->
+  <div style="margin-top: 14px;">
+    <a href="https://wa.me/94774160821?text=Hello%20Miss,%20O/L%20Class%20ekata%20katha%20karala%20kramayak%20hadaaganna%20puluwanda?" class="btn-wa">
+      WhatsApp
+    </a>
+    <a href="tel:0715826885" class="btn-call">
+      📞 Call: 071 582 6885
+    </a>
+  </div>
+</div>
+
+<script>
+  function switchTab(index) {
+    const tabs = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.tab-content');
+    tabs.forEach((tab, i) => {
+      tab.classList.toggle('active', i === index);
+      contents[i].classList.toggle('active', i === index);
+    });
+  }
+</script>
+
+</body>
+</html>
